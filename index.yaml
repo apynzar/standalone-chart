@@ -1,3 +1,12 @@
 apiVersion: v1
-entries: {}
-generated: "2023-04-18T18:20:33.962652+03:00"
+entries:
+  frontend-app:
+  - apiVersion: v2
+    created: "2023-04-18T18:36:26.9155617+03:00"
+    description: Frontend deployment for soulb project
+    digest: f9951c18df9bde053df38b5a77ce633138e8db40cf03cd2f010c48f0debda324
+    name: frontend-app
+    urls:
+    - frontend-app-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-04-18T18:36:26.9151038+03:00"
