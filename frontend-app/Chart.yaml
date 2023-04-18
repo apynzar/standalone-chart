@@ -1,0 +1,4 @@
+apiVersion: v2
+description: Frontend deployment for soulb project
+name: frontend-app
+version: 1.0.0
