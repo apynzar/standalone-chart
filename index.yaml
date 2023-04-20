@@ -7,7 +7,7 @@ entries:
     digest: 30a5d95483b17d2adf8e8c2ee56f9adc0060aa6d2fa8074ad74ccf9af0549dd0
     name: backend-app
     urls:
-    - charts/backend-app-1.0.0.tgz
+    - soulb-apps/soulb-apps-umbrella/charts/backend-app-1.0.0.tgz
     version: 1.0.0
   backend-app-ntt:
   - apiVersion: v2
@@ -16,7 +16,7 @@ entries:
     digest: 924411e30e0b66782b10aaf81e2a78d273742a88787be926d4b8c119a04892c8
     name: backend-app-ntt
     urls:
-    - charts/backend-app-ntt-1.0.0.tgz
+    - soulb-apps/soulb-apps-umbrella/charts/backend-app-ntt-1.0.0.tgz
     version: 1.0.0
   frontend-app:
   - apiVersion: v2
@@ -25,6 +25,6 @@ entries:
     digest: db538fff6800f3c50e7cd5390ddafc6424298d502fb773babff6cfeea2fe086e
     name: frontend-app
     urls:
-    - charts/frontend-app-1.0.0.tgz
+    - soulb-apps/soulb-apps-umbrella/charts/frontend-app-1.0.0.tgz
     version: 1.0.0
 generated: "2023-04-20T16:54:55.2631394+03:00"
