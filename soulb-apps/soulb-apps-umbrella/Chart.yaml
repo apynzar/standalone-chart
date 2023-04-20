@@ -1,0 +1,14 @@
+apiVersion: v2
+name: soulb-apps
+type: application
+version: 0.0.1
+dependencies:
+- name: frontend-app
+  version: ^1.0.0
+  repository: "file://../frontend-app"
+- name: backend-app
+  version: ^1.0.0
+  repository: "file://../backend-app"
+- name: backend-app-ntt
+  version: ^1.0.0
+  repository: "file://../backend-app-ntt"

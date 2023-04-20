@@ -1,0 +1,56 @@
+appName: backend-app-ntt
+fullname: backend-app-ntt
+replicaCount: 1
+namespace: backend-app
+secretRef: backend-app-ntt
+
+image:
+  repository: 458266539113.dkr.ecr.eu-central-1.amazonaws.com/soulb-ntt-backend-dev #TODO: replace to var
+  pullPolicy: IfNotPresent
+  tag: "soulb-ntt-backend-ntt-7"
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+ 
+securityContext: {}
+
+service:
+  enabled: true
+  ports:
+    http:
+      externalPort: 8080
+      internalPort: 3000
+      protocol: TCP
+
+ingress:
+  enabled: true
+  fqdn: "dev-api-ntt.sbid.io"
+  locations:
+    "/":
+      serviceName: "backend-app-ntt-sv"
+      servicePort: 8080
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+  extraHosts: {}
+
+resources: {} 
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,30 @@
+apiVersion: v1
+entries:
+  backend-app:
+  - apiVersion: v2
+    created: "2023-04-20T14:09:03.4930902+03:00"
+    description: Backend deployment for soulb project
+    digest: 612733571e40b1e54ce312e25053390871b620996e8d626d759fdcbb8b9c1096
+    name: backend-app
+    urls:
+    - charts/backend-app-1.0.0.tgz
+    version: 1.0.0
+  backend-app-ntt:
+  - apiVersion: v2
+    created: "2023-04-20T14:09:03.4933599+03:00"
+    description: Backend deployment for soulb project
+    digest: ed640fb0af63505bfedfe74188620fd955bd95a4c8486e57c4084cdb9b9c805e
+    name: backend-app-ntt
+    urls:
+    - charts/backend-app-ntt-1.0.0.tgz
+    version: 1.0.0
+  frontend-app:
+  - apiVersion: v2
+    created: "2023-04-20T14:09:03.4936218+03:00"
+    description: Frontend deployment for soulb project
+    digest: 42b5033f45c734a8e741df79092c1de32c5c27d9abfb2ef982a90e304dbef63e
+    name: frontend-app
+    urls:
+    - charts/frontend-app-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-04-20T14:09:03.4926334+03:00"

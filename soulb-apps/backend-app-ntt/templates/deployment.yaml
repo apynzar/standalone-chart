@@ -1,0 +1,65 @@
+{{- $appname := printf "%s" (include "name" .) -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.namespace }}
+  annotations:
+  labels:
+    app: {{ $appname }}
+    appver: "{{ .Values.image.tag }}"
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    release: "{{ .Release.Name }}"
+  name: {{ $appname }}
+
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      app: {{ $appname }}
+      release: "{{ .Release.Name }}"
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        app: {{ $appname }}
+        appver: "{{ .Values.image.tag }}"
+        release: "{{ .Release.Name }}"
+
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+     
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.secretRef }}         
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      restartPolicy: Always
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

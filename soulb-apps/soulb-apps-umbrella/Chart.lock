@@ -1,0 +1,12 @@
+dependencies:
+- name: frontend-app
+  repository: file://../frontend-app
+  version: 1.0.0
+- name: backend-app
+  repository: file://../backend-app
+  version: 1.0.0
+- name: backend-app-ntt
+  repository: file://../backend-app-ntt
+  version: 1.0.0
+digest: sha256:341586a3c92988b7cfbcf777b9979ba1842575feef988f0bf5fca41b8d5f7380
+generated: "2023-04-13T15:52:45.460748+03:00"

@@ -1,0 +1,4 @@
+apiVersion: v2
+description: Backend deployment for soulb project
+name: backend-app-ntt
+version: 1.0.0
